@@ -30,13 +30,16 @@ namespace MyStore.Pages.Clients
             //save the name client into the database
             try
             {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "166cs436.database.windows.net";
-                builder.UserID = "supat.r";
-                builder.Password = "$up@T59801";
-                builder.InitialCatalog = "BUEMAIL";
+                /*               SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                               builder.DataSource = "166cs436.database.windows.net";
+                               builder.UserID = "supat.r";
+                               builder.Password = "$up@T59801";
+                               builder.InitialCatalog = "BUEMAIL";
 
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                               using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+               */
+                String connectionString = "Server=tcp:166cs436.database.windows.net,1433;Initial Catalog=BUEMAIL;Persist Security Info=False;User ID=supat.r;Password=$up@T59801;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     String sql = "INSERT INTO clients " +
